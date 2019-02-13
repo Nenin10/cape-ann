@@ -1,5 +1,5 @@
 # LIBRARY
-Books Database - Library Web Application
+Library - Web Application
 
 Specification
 -------------
