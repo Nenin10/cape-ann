@@ -125,4 +125,12 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * Displays message.
+     */
+    public function actionSay($message = 'Hello World')
+    {
+        return $this->render('say', ['message' => $message]);
+    }
 }
