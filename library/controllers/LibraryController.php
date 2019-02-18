@@ -2,8 +2,10 @@
 
 namespace app\controllers;
 
+use Yii;
 use yii\web\Controller;
 use yii\data\Pagination;
+use yii\helpers\Url;
 use app\models\Book;
 
 class LibraryController extends Controller
@@ -29,5 +31,16 @@ class LibraryController extends Controller
             'books' => $books,
             'pagination' => $pagination,
         ]);
+    }
+    public function actionBookform()
+    {
+        $model = new Book;
+
+        if ($model -> load(Yii::$app->request->post()) && $model->validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('index'));
+        }
+        return $this->render('forms/bookform', ['model' => $model]);
     }
 }
