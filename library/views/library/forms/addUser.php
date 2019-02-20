@@ -3,12 +3,12 @@
 namespace app\models;
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 ?>
-    <?php
-$form = ActiveForm::begin([
-    'id' => 'login-form',
-    'options' => ['class' => 'form-horizontal', 'enctype' => 'multipart/form-data'],
+<?php
+    $form = ActiveForm::begin([
+        'id' => 'login-form',
+        'options' => ['class' => 'form-horizontal', 'enctype' => 'multipart/form-data'],
 ]) ?>
 <?= $form->field($model, 'username') ?>
 <?= $form->field($model, 'password')->passwordInput() ?>

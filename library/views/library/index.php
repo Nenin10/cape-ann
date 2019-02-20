@@ -1,18 +1,20 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\LinkPager;
+use yii\bootstrap\ActiveForm;
 ?>
-    <!--    Using Yii Documentation for first example
-            just to make sure Controller is working
-            with Model and View.                  -->
-    <h1>Books</h1>
-    <ul>
-        <?php foreach ($books as $book): ?>
-            <li>
-                <?= Html::encode("{$book->title} ({$book->author})") ?> -
-                <?= $book->year ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
 
-<?= LinkPager::widget(['pagination' => $pagination]) ?>
+<?php
+    $form = ActiveForm::begin([
+        'id' => 'login-form',
+        'options' => ['class' => 'form-horizontal'],
+    ])
+?>
+
+<?= $form->errorSummary($model, ['header' => 'ERROR:']); ?>
+<?= $form->field($model, 'username') ?>
+<?= $form->field($model, 'password')->passwordInput() ?>
+
+    <div class="form-group">
+        <?= Html::submitButton('Login', ['class' => 'btn btn-primary fixedbtn']) ?>
+    </div>
+<?php ActiveForm::end() ?>

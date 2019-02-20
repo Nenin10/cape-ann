@@ -3,7 +3,7 @@
 namespace app\models;
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 ?>
     <?php
     $form = ActiveForm::begin([

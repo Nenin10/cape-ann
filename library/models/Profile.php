@@ -82,4 +82,13 @@ class Profile extends \yii\db\ActiveRecord
     {
         return $this->hasMany(ProfileAuthor::className(), ['profile_id' => 'id']);
     }
+//----------------- FIND PROFILE
+    public function getProfile($user_id)
+    {
+        return Profile::findByUser($user_id);
+    }
+    public static function findByUser($user_id)
+    {
+        return self::findOne(['user_id' => $user_id]);
+    }
 }
