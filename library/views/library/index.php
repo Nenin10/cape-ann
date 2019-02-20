@@ -1,18 +1,60 @@
 <?php
 use yii\helpers\Html;
-use yii\widgets\LinkPager;
+use yii\bootstrap\Button;
 ?>
-    <!--    Using Yii Documentation for first example
-            just to make sure Controller is working
-            with Model and View.                  -->
-    <h1>Books</h1>
-    <ul>
-        <?php foreach ($books as $book): ?>
-            <li>
-                <?= Html::encode("{$book->title} ({$book->author})") ?> -
-                <?= $book->year ?>
-            </li>
-        <?php endforeach; ?>
-    </ul>
 
-<?= LinkPager::widget(['pagination' => $pagination]) ?>
+<!-- Temporary Index -->
+    <div class="card-body text-center">
+        <!--Title-->
+        <a href="login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login </a>
+        <a href="register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Register </a>
+    </div>
+
+<!-- Learning Bootstrap - Edit later -->
+<div class="container">
+    <div class="row">
+        <header class="col-md-12 text-center">
+            <h2>Bootstrap's 4 Grid System</h2>
+        </header>
+        <div class="col-md-3 text-center">
+            <h3>Heading 1</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 2</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 3</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 4</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 5</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 6</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 7</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+        <div class="col-md-3 text-center">
+            <h3>Heading 8</h3>
+            Lorem ipsum dolor sit amet..
+            <a class="btn btn-default" href="#">Read More →</a>
+        </div>
+    </div>
+</div>
