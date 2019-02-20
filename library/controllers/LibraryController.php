@@ -66,7 +66,26 @@ class LibraryController extends Controller
         if ($model -> load(Yii::$app->request->post()) && $model->validate())
         {
             $model -> save();
-            return Yii::$app->response->redirect(Url::to('index'));
+
+            $POST_VAR = Yii::$app->request->post('User');
+            $username = $POST_VAR['username'];
+            $user = $model->GetUser($username);
+            if(!is_null($user))
+            {
+                $session = Yii::$app->session;
+                $userID = $user->id;
+                $profile = new Profile();
+                $profile->user_id = $userID;
+                $profile->name = 'Full Name';
+                $profile->description = 'Summary - Description - etc.';
+                $profile->birth_date = '0000-00-00';
+                $profile->image = 'image';
+
+                if ($profile->validate()) {
+                    $profile->save();
+                    return Yii::$app->response->redirect(Url::to('index'));
+                }
+            }
         }
         return $this->render('forms/registerform', ['model' => $model]);
     }
@@ -96,7 +115,26 @@ class LibraryController extends Controller
         if ($model -> load(Yii::$app->request->post()) && $model->validate())
         {
             $model -> save();
-            return Yii::$app->response->redirect(Url::to('index'));
+
+            $POST_VAR = Yii::$app->request->post('User');
+            $username = $POST_VAR['username'];
+            $user = $model->GetUser($username);
+            if(!is_null($user))
+            {
+                $session = Yii::$app->session;
+                $userID = $user->id;
+                $profile = new Profile();
+                $profile->user_id = $userID;
+                $profile->name = 'Full Name';
+                $profile->description = 'Summary - Description - etc.';
+                $profile->birth_date = '0000-00-00';
+                $profile->image = 'image';
+
+                if ($profile->validate()) {
+                    $profile->save();
+                    return Yii::$app->response->redirect(Url::to('index'));
+                }
+            }
         }
         return $this->render('forms/addUser', ['model' => $model]);
     }
