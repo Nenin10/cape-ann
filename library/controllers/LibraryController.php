@@ -16,6 +16,11 @@ class LibraryController extends Controller
 {
     public function actionIndex()
     {
+        return $this->render('index');
+    }
+
+    public function actionLogin()
+    {
         $model = new User;
         $model->scenario = 'login';
         $profile = new Profile;
@@ -39,19 +44,31 @@ class LibraryController extends Controller
                         $session->set('user_profile', $userProfile->id);
                         return Yii::$app->response->redirect(Url::to('home'));
                     }
-                    $model->addError('GREŠKA', "This user's profile doesn't exist.");
+                    $model->addError('ERROR', "This user's profile doesn't exist.");
                 }
                 else
                 {
-                    $model->addError('GREŠKA', 'Wrong password inserted.');
+                    $model->addError('ERROR', 'Wrong password inserted.');
                 }
             }
             else
             {
-                $model->addError('', 'Wrong username inserted.');
+                $model->addError('ERROR', 'Wrong username inserted.');
             }
         }
-        return $this->render('index', ['model' => $model]);
+        return $this->render('forms/loginform', ['model' => $model]);
+    }
+
+    public function actionRegister()
+    {
+        $model = new User;
+        $model->rank = 'user';
+        if ($model -> load(Yii::$app->request->post()) && $model->validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('index'));
+        }
+        return $this->render('forms/registerform', ['model' => $model]);
     }
 
     public function actionHome()
@@ -83,6 +100,7 @@ class LibraryController extends Controller
         }
         return $this->render('forms/addUser', ['model' => $model]);
     }
+
     public function actionAddbook()
     {
         $model = new Book;
