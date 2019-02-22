@@ -12,13 +12,8 @@ use app\models\Profile2Book;
 use app\models\ProfileAuthor;
 use app\models\User;
 
-class LibraryController extends Controller
+class UsersController extends Controller
 {
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
     public function actionLogin()
     {
         $model = new User;
@@ -90,24 +85,6 @@ class LibraryController extends Controller
         return $this->render('forms/registerform', ['model' => $model]);
     }
 
-    public function actionHome()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Profile::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
-        ]);
-
-        $dataProvider1 = new ActiveDataProvider([
-            'query' => User::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
-        ]);
-        return $this->render('home', ['dataProvider' => $dataProvider, 'dataProvider1' => $dataProvider1]);
-    }
-
     public function actionAdduser()
     {
         $model = new User;
@@ -137,17 +114,5 @@ class LibraryController extends Controller
             }
         }
         return $this->render('forms/addUser', ['model' => $model]);
-    }
-
-    public function actionAddbook()
-    {
-        $model = new Book;
-
-        if ($model -> load(Yii::$app->request->post()) && $model->validate())
-        {
-            $model -> save();
-            return Yii::$app->response->redirect(Url::to('index'));
-        }
-        return $this->render('forms/addBook', ['model' => $model]);
     }
 }
