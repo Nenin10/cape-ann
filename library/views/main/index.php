@@ -6,8 +6,8 @@ use yii\bootstrap\Button;
 <!-- Temporary Index -->
     <div class="card-body text-center">
         <!--Title-->
-        <a href="login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login </a>
-        <a href="register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Register </a>
+        <a href="users/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login </a>
+        <a href="users/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Register </a>
     </div>
 
 <!-- Learning Bootstrap - Edit later -->
