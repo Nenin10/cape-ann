@@ -6,12 +6,14 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'yiiunit\\extensions\\bootstrap4\\' => array($baseDir . '/tests'),
     'yii\\swiftmailer\\' => array($vendorDir . '/yiisoft/yii2-swiftmailer'),
     'yii\\gii\\' => array($vendorDir . '/yiisoft/yii2-gii/src'),
     'yii\\faker\\' => array($vendorDir . '/yiisoft/yii2-faker'),
     'yii\\debug\\' => array($vendorDir . '/yiisoft/yii2-debug/src'),
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap/src'),
+    'yii\\bootstrap4\\' => array($baseDir . '/src'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'phpDocumentor\\Reflection\\' => array($vendorDir . '/phpdocumentor/reflection-common/src', $vendorDir . '/phpdocumentor/reflection-docblock/src', $vendorDir . '/phpdocumentor/type-resolver/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),

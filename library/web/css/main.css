@@ -1,0 +1,19 @@
+body {
+    background-image: url("../img/bg.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;}
+
+.index-template {
+    color: #fcfcfc;
+    padding: 40px 15px;
+    text-align: center;}
+.button-actions {
+    margin-top:15px;
+    margin-bottom:15px;}
+.button-actions .btn {
+    margin-right:10px; }
