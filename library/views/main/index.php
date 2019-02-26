@@ -2,26 +2,31 @@
 
 namespace app\models;
 
-use Yii;
-use yii\helpers\Html;
-use yii\bootstrap\Button;
-use yii\bootstrap\Progress;
 ?>
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="index-template">
-                <h1 class="display-4 font-weight-bold white-text pt-5 mb-2">
-                    Cape-Ann</h1>
+                <br>
+                <h1> Cape-Ann </h1>
                 <div class="app-details">
                     Library Web Application
                 </div>
-                <div class="button-actions">
-                    <a href="users/login" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-user"></span> Login </a>
-                    <a href="users/register" class="btn btn-default btn-lg"> Register <span class="glyphicon glyphicon-pencil"></span></a>
-                </div>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-sm-4 col-xs-3"></div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <div class="button-actions btn-6">
+                <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block" id="main"> Sign-In </a> <br>
+            </div>
+            <div class="btn-group-sm hidden" id="mini-fab">
+                <a href="users/login" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-user"></span> Login </a> <br>
+                <a href="users/register" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Register</a>
+            </div>
+        </div>
+        <div class="col-md-5 col-sm-4 col-xs-3"></div>
     </div>
 </div>

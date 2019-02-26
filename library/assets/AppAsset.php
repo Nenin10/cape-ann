@@ -23,7 +23,8 @@ class AppAsset extends AssetBundle
         'css/main.css',
     ];
     public $js = [
-        'js/jquery-3.3.1.js'
+        'js/jquery-3.3.1.js',
+        'js/sign-in.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
