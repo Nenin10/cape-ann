@@ -16,6 +16,8 @@ class UsersController extends Controller
 {
     public function actionLogin()
     {
+        $this->layout = 'login';
+
         $model = new User;
         $model->scenario = 'login';
         $profile = new Profile;
@@ -37,7 +39,7 @@ class UsersController extends Controller
                     $userProfile = $profile->GetProfile($session['id']);
                     if(!is_null($userProfile)) {
                         $session->set('user_profile', $userProfile->id);
-                        return Yii::$app->response->redirect(Url::to('home'));
+                        return Yii::$app->response->redirect(Url::to('../main/home'));
                     }
                     $model->addError('ERROR', "This user's profile doesn't exist.");
                 }
@@ -56,6 +58,8 @@ class UsersController extends Controller
 
     public function actionRegister()
     {
+        $this->layout = 'login';
+
         $model = new User;
         $model->rank = 'user';
         if ($model -> load(Yii::$app->request->post()) && $model->validate())
@@ -78,7 +82,7 @@ class UsersController extends Controller
 
                 if ($profile->validate()) {
                     $profile->save();
-                    return Yii::$app->response->redirect(Url::to('index'));
+                    return Yii::$app->response->redirect(Url::to('../main'));
                 }
             }
         }
@@ -109,7 +113,7 @@ class UsersController extends Controller
 
                 if ($profile->validate()) {
                     $profile->save();
-                    return Yii::$app->response->redirect(Url::to('index'));
+                    return Yii::$app->response->redirect(Url::to('../main/home'));
                 }
             }
         }

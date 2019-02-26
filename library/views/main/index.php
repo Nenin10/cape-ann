@@ -1,60 +1,32 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\Button;
+
+namespace app\models;
+
 ?>
 
-<!-- Temporary Index -->
-    <div class="card-body text-center">
-        <!--Title-->
-        <a href="users/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login </a>
-        <a href="users/register" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Register </a>
-    </div>
-
-<!-- Learning Bootstrap - Edit later -->
 <div class="container">
     <div class="row">
-        <header class="col-md-12 text-center">
-            <h2>Bootstrap's 4 Grid System</h2>
-        </header>
-        <div class="col-md-3 text-center">
-            <h3>Heading 1</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
+        <div class="col-md-12">
+            <div class="index-template">
+                <br>
+                <h1> Cape-Ann </h1>
+                <div class="app-details">
+                    Library Web Application
+                </div>
+            </div>
         </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 2</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-sm-4 col-xs-3"></div>
+        <div class="col-md-2 col-sm-4 col-xs-6">
+            <div class="button-actions btn-6">
+                <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block" id="main"> Sign-In </a> <br>
+            </div>
+            <div class="btn-group-sm hidden" id="mini-fab">
+                <a href="users/login" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-user"></span> Login </a> <br>
+                <a href="users/register" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Register</a>
+            </div>
         </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 3</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 4</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 5</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 6</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 7</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
-        <div class="col-md-3 text-center">
-            <h3>Heading 8</h3>
-            Lorem ipsum dolor sit amet..
-            <a class="btn btn-default" href="#">Read More →</a>
-        </div>
+        <div class="col-md-5 col-sm-4 col-xs-3"></div>
     </div>
 </div>

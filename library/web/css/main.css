@@ -1,0 +1,34 @@
+body {
+    background-image: url("../img/bg.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;}
+
+.index-template {
+    color: #fcfcfc;
+    padding: 40px 15px;
+    text-align: center;}
+.button-actions {
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+body#loginform {
+    margin: 0;
+    padding: 0;
+    background-color: #17a2b8;
+    height: 100vh;
+}
+#login .container #login-row #login-column #login-box {
+    margin-top: 40px;
+    max-width: 600px;
+    border: 1px solid #9C9C9C;
+    background-color: #EAEAEA95;
+}
+#login .container #login-row #login-column #login-box #login-form {
+    padding: 20px;
+}

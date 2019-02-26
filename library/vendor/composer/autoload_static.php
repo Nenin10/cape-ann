@@ -20,12 +20,14 @@ class ComposerStaticInit32b681755396bd8d47a6274cecbb4b27
     public static $prefixLengthsPsr4 = array (
         'y' => 
         array (
+            'yiiunit\\extensions\\bootstrap4\\' => 30,
             'yii\\swiftmailer\\' => 16,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
             'yii\\debug\\' => 10,
             'yii\\composer\\' => 13,
             'yii\\bootstrap\\' => 14,
+            'yii\\bootstrap4\\' => 15,
             'yii\\' => 4,
         ),
         'p' => 
@@ -79,6 +81,10 @@ class ComposerStaticInit32b681755396bd8d47a6274cecbb4b27
     );
 
     public static $prefixDirsPsr4 = array (
+        'yiiunit\\extensions\\bootstrap4\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/tests',
+        ),
         'yii\\swiftmailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
@@ -102,6 +108,10 @@ class ComposerStaticInit32b681755396bd8d47a6274cecbb4b27
         'yii\\bootstrap\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-bootstrap/src',
+        ),
+        'yii\\bootstrap4\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'yii\\' => 
         array (

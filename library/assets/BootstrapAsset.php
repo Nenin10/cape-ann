@@ -10,24 +10,19 @@ namespace app\assets;
 use yii\web\AssetBundle;
 
 /**
- * Main application asset bundle.
+ * Asset bundle for the Twitter bootstrap css files.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
  */
-class AppAsset extends AssetBundle
+class BootstrapAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/main.css',
+        'vendor/bootstrap/css/bootstrap.min.css'
     ];
     public $js = [
-        'js/jquery-3.3.1.js',
-        'js/sign-in.js',
-    ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'app\assets\BootstrapAsset',
+        'vendor/bootstrap/js/bootstrap.min.js',
+        'vendor/popper.js/umd/popper.min.js'
     ];
 }
