@@ -7,21 +7,21 @@ use yii\helpers\url;
 
 ?>
 <?php
-    $session = Yii::$app->session;
-    if(!isset($session['user_id']))
-    {
-        return Yii::$app->response->redirect(Url::to('../main'));
-    }
+$session = Yii::$app->session;
+if(!isset($session['user_id']))
+{
+    return Yii::$app->response->redirect(Url::to('../main'));
+}
 ?>
 
 <div id="nav-menu">
     <div class="container">
-        <div class="icon" id="active">
-            <a href="home"><span class="glyphicon glyphicon-th-list"></span></a><br>
+        <div class="icon">
+            <a href="../main/home"><span class="glyphicon glyphicon-th-list"></span></a><br>
             <p>LIBRARY</p>
         </div>
-        <div class="icon">
-            <a href="../users/profile"><span class="text-danger glyphicon glyphicon-credit-card"></span></a><br>
+        <div class="icon" id="active">
+            <a href="profile"><span class="text-danger glyphicon glyphicon-credit-card"></span></a><br>
             <p>PROFILE</p>
         </div>
         <?php if($session['user_rank'] === 'admin'){ ?>
@@ -35,12 +35,12 @@ use yii\helpers\url;
             </div>
         <?php } ?>
         <div class="icon">
-            <a href="../users/logout"><span class="glyphicon glyphicon-log-out"></span></a><br>
+            <a href="logout"><span class="glyphicon glyphicon-log-out"></span></a><br>
             <p>LOGOUT</p>
         </div>
     </div>
 </div>
 <div id="main-part">
-    <h1> LIBRARY HOME! </h1>
+    <h1> PROFILE! </h1>
 </div>
 
