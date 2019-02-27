@@ -14,6 +14,30 @@ use app\models\User;
 
 class UsersController extends Controller
 {
+    public function actionIndex()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => User::find(),
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+        ]);
+        return $this->render('index', ['dataProvider' => $dataProvider]);
+    }
+
+    public function actionProfile()
+    {
+        $session = Yii::$app->session;
+        $id = $session['id'];
+        $dataProvider = new ActiveDataProvider([
+            'query' => Profile::find()->where(['user_id' => $id]),
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+        ]);
+        return $this->render('profile', ['dataProvider' => $dataProvider]);
+    }
+
     public function actionLogin()
     {
         $this->layout = 'login';
@@ -118,5 +142,16 @@ class UsersController extends Controller
             }
         }
         return $this->render('forms/addUser', ['model' => $model]);
+    }
+
+    public function actionLogout()
+    {
+        $session = Yii::$app->session;
+        $session['id'] = NULL;
+        $session['user_id'] = NULL;
+        $session['user_rank'] = NULL;
+        $session['user_cv'] = NULL;
+
+        return Yii::$app->response->redirect(Url::to('../main'));
     }
 }

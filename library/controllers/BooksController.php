@@ -14,6 +14,17 @@ use app\models\User;
 
 class BooksController extends Controller
 {
+    public function actionIndex()
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Book::find(),
+            'pagination' => [
+                'pageSize' => 6,
+            ],
+        ]);
+        return $this->render('index', ['dataProvider' => $dataProvider]);
+    }
+
      public function actionAddbook()
     {
         $model = new Book;
