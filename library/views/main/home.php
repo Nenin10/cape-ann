@@ -26,11 +26,11 @@ use yii\helpers\url;
         </div>
         <?php if($session['user_rank'] === 'admin'){ ?>
             <div class="icon">
-                <a href="../users"><span class="glyphicon glyphicon-user"></span></a><br>
+                <a href="../users/index"><span class="glyphicon glyphicon-user"></span></a><br>
                 <p>USERS</p>
             </div>
             <div class="icon">
-                <a href="../books"><span class="glyphicon glyphicon-book"></span></a><br>
+                <a href="../books/index"><span class="glyphicon glyphicon-book"></span></a><br>
                 <p>BOOKS</p>
             </div>
         <?php } ?>
