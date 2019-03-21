@@ -70,11 +70,11 @@ if(!isset($session['user_id']))
                     'urlCreator' => function ($action, $model, $key, $index) {
                         if($action === 'update')
                         {
-                            return  Url::to('update?id=' .$key. '&gridid=2');
+                            return  Url::to('update?id=' .$key);
                         }
                         else if($action === 'delete')
                         {
-                            return  Url::to('delete?id=' .$key. '&gridid=2');
+                            return  Url::to('delete?id=' .$key);
                         }
                     }
                 ],

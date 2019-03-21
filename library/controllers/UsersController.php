@@ -40,7 +40,7 @@ class UsersController extends Controller
 
     public function actionLogin()
     {
-        $this->layout = 'login';
+        $this->layout = 'form';
 
         $model = new User;
         $model->scenario = 'login';
@@ -82,7 +82,7 @@ class UsersController extends Controller
 
     public function actionRegister()
     {
-        $this->layout = 'login';
+        $this->layout = 'form';
 
         $model = new User;
         $model->rank = 'user';
@@ -115,6 +115,8 @@ class UsersController extends Controller
 
     public function actionAdduser()
     {
+        $this->layout = 'form';
+
         $model = new User;
 
         if ($model -> load(Yii::$app->request->post()) && $model->validate())
@@ -153,5 +155,25 @@ class UsersController extends Controller
         $session['user_cv'] = NULL;
 
         return Yii::$app->response->redirect(Url::to('../main'));
+    }
+
+    public function actionUpdate($id)
+    {
+        $this->layout = 'form';
+        
+        $model = User::findOne($id);
+        if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('index'));
+        }
+        return $this->render('forms/addUser', ['model' => $model]);
+    }
+
+    public function actionDelete($id)
+    {
+        $model = User::findOne($id);
+        $model -> delete();
+        return Yii::$app->response->redirect(Url::to('index'));
     }
 }
