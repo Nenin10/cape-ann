@@ -27,6 +27,8 @@ class BooksController extends Controller
 
      public function actionAddbook()
     {
+        $this->layout = 'form';
+
         $model = new Book;
 
         if ($model -> load(Yii::$app->request->post()) && $model->validate())
@@ -35,5 +37,26 @@ class BooksController extends Controller
             return Yii::$app->response->redirect(Url::to('index'));
         }
         return $this->render('forms/addBook', ['model' => $model]);
+    }
+
+    public function actionUpdate($id)
+    {
+        $this->layout = 'form';
+
+        $model = Book::findOne($id);
+
+        if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('index'));
+        }
+        return $this->render('forms/addBook', ['model' => $model]);
+    }
+
+    public function actionDelete($id)
+    {
+        $model = Book::findOne($id);
+        $model -> delete();
+        return Yii::$app->response->redirect(Url::to('index'));
     }
 }

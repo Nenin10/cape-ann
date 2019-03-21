@@ -4,6 +4,8 @@ namespace app\models;
 
 use Yii;
 use yii\helpers\url;
+use yii\bootstrap\Html;
+use yii\bootstrap\GridView;
 
 ?>
 <?php
@@ -41,6 +43,49 @@ if(!isset($session['user_id']))
     </div>
 </div>
 <div id="main-part">
-    <h1> BOOKS INDEX! </h1>
+    <div class="container-fluid" id="grid-table">
+        <?=
+        GridView::widget([
+            'dataProvider' => $dataProvider,
+            'tableOptions' => ['class' => 'table table-condensed'],
+            'columns' => [
+                ['class' => 'yii\grid\SerialColumn'],
+                'title',
+                'author',
+                'year',
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'header' => 'Options',
+                    'template' => ' {update} {delete}',
+                    'buttons' => [
+                        'update' => function ($url, $model) {
+                            if($_SESSION['user_rank'] === 'admin')
+                                return  Html::a('<span class="glyphicon glyphicon-edit"></span>', $url) ;
+                        },
+                        'delete' => function ($url, $model) {
+                            if($_SESSION['user_rank'] === 'admin')
+                                return  Html::a('<span class="glyphicon glyphicon-trash"></span>', $url) ;
+                        },
+                    ],
+                    'urlCreator' => function ($action, $model, $key, $index) {
+                        if($action === 'update')
+                        {
+                            return  Url::to('update?id=' .$key);
+                        }
+                        else if($action === 'delete')
+                        {
+                            return  Url::to('delete?id=' .$key);
+                        }
+                    }
+                ],
+            ],
+        ]);
+        ?>
+
+    </div>
+    <div class="icon" id="add">
+        <a href="addbook"><span class="glyphicon glyphicon-plus"></span></a><br>
+        <p>Add Book</p>
+    </div>
 </div>
 
