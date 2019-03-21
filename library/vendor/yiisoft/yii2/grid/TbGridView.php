@@ -6,14 +6,16 @@
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  * @package bootstrap.widgets
  */
+namespace yii\grid;
 
-Yii::import('zii.widgets.grid.CGridView');
-Yii::import('bootstrap.widgets.TbDataColumn');
+use yii\grid\GridView;
+
+/* Yii::import('bootstrap.widgets.TbDataColumn'); */
 
 /**
  * Bootstrap Zii grid view.
  */
-class TbGridView extends CGridView
+class TbGridView extends GridView
 {
 	// Table types.
 	const TYPE_STRIPED = 'striped';

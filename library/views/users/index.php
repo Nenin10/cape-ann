@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\widgets;
 
 use Yii;
-use yii\helpers\url;
-use yii\helpers\html;
-use yii\grid\GridView;
+use yii\helpers\Url;
+use yii\bootstrap\Html;
+use yii\bootstrap\GridView;
 
 ?>
 <?php
@@ -23,7 +23,7 @@ if(!isset($session['user_id']))
             <p>LIBRARY</p>
         </div>
         <div class="icon">
-            <a href="profile"><span class="text-danger glyphicon glyphicon-credit-card"></span></a><br>
+            <a href="profile"><span class="glyphicon glyphicon-credit-card"></span></a><br>
             <p>PROFILE</p>
         </div>
         <?php if($session['user_rank'] === 'admin'){ ?>
@@ -43,17 +43,15 @@ if(!isset($session['user_id']))
     </div>
 </div>
 <div id="main-part">
-    <h1> USERS INDEX! </h1>
-    <div id="users">
+    <div class="container-fluid" id="grid-table">
         <?=
         GridView::widget([
             'dataProvider' => $dataProvider,
-            'tableOptions' => ['class' => 'table table'],
+            'tableOptions' => ['class' => 'table table-condensed'],
             'columns' => [
-                ['class' => 'yii\grid\SerialColumn'],
+                'rank',
                 'username',
                 'password',
-                'rank',
                 'email',
                 [
                     'class' => 'yii\grid\ActionColumn',
@@ -81,11 +79,12 @@ if(!isset($session['user_id']))
                     }
                 ],
             ],
-        ]);
+]);
         ?>
+
     </div>
-    <div class="icon">
-        <a href="users/adduser"><span class="glyphicon glyphicon-plus"></span></a><br>
+    <div class="icon" id="add">
+        <a href="adduser"><span class="glyphicon glyphicon-plus"></span></a><br>
         <p>Add User</p>
     </div>
 </div>
