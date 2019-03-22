@@ -140,3 +140,63 @@ a
     text-decoration: none;
     color: #d9d9d9;
 }
+
+/**** PROFILE ****/
+
+.page-header{
+    text-align: left;
+}
+.panel-default{
+    margin: 30px;
+    background-color: #00000095;
+    color: #d9d9d9;
+    border-color: #000000;
+}
+.panel-default>.panel-heading{
+    background-color: #00000095;
+    border-color: #000000;
+}
+.list-group-item{
+    text-align: left;
+    vertical-align: central;
+    background-color: #ffffff15;
+    border-color: #00000095;
+    color: #d9d9d9;
+}
+.info-head{
+    color: #428bca;
+}
+
+.bs-callout {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #eee;
+    border-image: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px 1px 1px 5px;
+    margin-bottom: 5px;
+    padding: 20px;
+}
+.bs-callout:last-child {
+    margin-bottom: 0px;
+}
+.bs-callout h4 {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.bs-callout-primary {
+    border-color: #0e0e0e;
+    border-left-color: #428bca;
+}
+
+.bs-callout-primary h4{
+    color: #428bca;
+}
+
+.resume .list-group-item:first-child, .resume .list-group-item:last-child{
+    border-radius:0;
+}

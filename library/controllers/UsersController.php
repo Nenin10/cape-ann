@@ -53,10 +53,14 @@ class UsersController extends Controller
                     $session->set('id', $user->id);
                     $session->set('user_id', $user->username);
                     $session->set('user_rank', $user->rank);
+                    $session->set('user_email', $user->email);
+                    $session->set('user_password', $user->password);
 
                     $userProfile = $profile->GetProfile($session['id']);
                     if(!is_null($userProfile)) {
-                        $session->set('user_profile', $userProfile->id);
+                        $session->set('user_name', $userProfile->name);
+                        $session->set('user_birth', $userProfile->birth_date);
+                        $session->set('user_image', $userProfile->image);
                         return Yii::$app->response->redirect(Url::to('../main/home'));
                     }
                     $model->addError('ERROR', "This user's profile doesn't exist.");
@@ -142,7 +146,12 @@ class UsersController extends Controller
         $session['id'] = NULL;
         $session['user_id'] = NULL;
         $session['user_rank'] = NULL;
-        $session['user_cv'] = NULL;
+        $session['user_profile'] = NULL;
+        $session['user_email'] = NULL;
+        $session['user_password'] = NULL;
+        $session['user_name'] = NULL;
+        $session['user_birth'] = NULL;
+        $session['user_image'] = NULL;
 
         return Yii::$app->response->redirect(Url::to('../main'));
     }
