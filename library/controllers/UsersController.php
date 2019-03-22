@@ -160,7 +160,7 @@ class UsersController extends Controller
     public function actionUpdate($id)
     {
         $this->layout = 'form';
-        
+
         $model = User::findOne($id);
         if ($model -> load(Yii::$app->request->post()) && $model -> validate())
         {
