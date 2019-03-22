@@ -32,6 +32,7 @@ class Book extends \yii\db\ActiveRecord
         return [
             [['title', 'author'], 'required'],
             [['year'], 'integer'],
+            [['cover', 'description'], 'string'],
             [['title', 'author'], 'string', 'max' => 64],
         ];
     }
@@ -46,6 +47,8 @@ class Book extends \yii\db\ActiveRecord
             'title' => 'Title',
             'author' => 'Author',
             'year' => 'Year',
+            'cover' => 'Cover Image',
+            'description' => 'Description',
         ];
     }
 

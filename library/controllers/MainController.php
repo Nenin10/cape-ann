@@ -24,17 +24,11 @@ class MainController extends Controller
     public function actionHome()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Profile::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
+            'query' => Profile::find()
         ]);
 
         $dataProvider1 = new ActiveDataProvider([
-            'query' => User::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
+            'query' => User::find()
         ]);
         return $this->render('home', ['dataProvider' => $dataProvider, 'dataProvider1' => $dataProvider1]);
     }

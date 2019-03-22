@@ -26,6 +26,12 @@ use yii\bootstrap\ActiveForm;
                             <?= $form->field($model, 'title') ?>
                             <?= $form->field($model, 'author') ?>
                             <?= $form->field($model, 'year') ?>
+                            <?= $form->field($model, 'description')->textarea() ?>
+                            <?= $form->field($model, 'cover')->fileInput([
+                                    'class' => 'btn btn-secondary',
+                                    'style' => 'width: 100%',
+                                    'text' => 'Yeee',
+                                ]) ?>
 
                             <?= Html::submitButton('Submit', ['class' => 'btn btn-default btn-md', 'target' => '_blank']) ?>
 

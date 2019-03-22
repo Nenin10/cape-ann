@@ -17,10 +17,7 @@ class BooksController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Book::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
+            'query' => Book::find()
         ]);
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }

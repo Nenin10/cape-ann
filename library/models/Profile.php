@@ -34,12 +34,11 @@ class Profile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'name', 'description', 'birth_date', 'image'], 'required'],
+            [['user_id'], 'required'],
             [['user_id'], 'integer'],
-            [['description'], 'string'],
             [['birth_date'], 'safe'],
+            [['image'], 'string'],
             [['name'], 'string', 'max' => 64],
-            [['image'], 'string', 'max' => 512],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -53,7 +52,6 @@ class Profile extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_id' => 'User ID',
             'name' => 'Name',
-            'description' => 'Description',
             'birth_date' => 'Birth Date',
             'image' => 'Image',
         ];

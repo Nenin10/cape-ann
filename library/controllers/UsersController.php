@@ -17,10 +17,7 @@ class UsersController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => User::find(),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
+            'query' => User::find()
         ]);
         return $this->render('index', ['dataProvider' => $dataProvider]);
     }
@@ -30,10 +27,7 @@ class UsersController extends Controller
         $session = Yii::$app->session;
         $id = $session['id'];
         $dataProvider = new ActiveDataProvider([
-            'query' => Profile::find()->where(['user_id' => $id]),
-            'pagination' => [
-                'pageSize' => 6,
-            ],
+            'query' => Profile::find()->where(['user_id' => $id])
         ]);
         return $this->render('profile', ['dataProvider' => $dataProvider]);
     }
@@ -95,14 +89,12 @@ class UsersController extends Controller
             $user = $model->GetUser($username);
             if(!is_null($user))
             {
-                $session = Yii::$app->session;
                 $userID = $user->id;
                 $profile = new Profile();
                 $profile->user_id = $userID;
-                $profile->name = 'Full Name';
-                $profile->description = 'Summary - Description - etc.';
-                $profile->birth_date = '0000-00-00';
-                $profile->image = 'image';
+                $profile->name = NULL;
+                $profile->birth_date = NULL;
+                $profile->image = NULL;
 
                 if ($profile->validate()) {
                     $profile->save();
@@ -128,14 +120,12 @@ class UsersController extends Controller
             $user = $model->GetUser($username);
             if(!is_null($user))
             {
-                $session = Yii::$app->session;
                 $userID = $user->id;
                 $profile = new Profile();
                 $profile->user_id = $userID;
-                $profile->name = 'Full Name';
-                $profile->description = 'Summary - Description - etc.';
-                $profile->birth_date = '0000-00-00';
-                $profile->image = 'image';
+                $profile->name = NULL;
+                $profile->birth_date = NULL;
+                $profile->image = NULL;
 
                 if ($profile->validate()) {
                     $profile->save();
