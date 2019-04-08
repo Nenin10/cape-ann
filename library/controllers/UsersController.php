@@ -26,10 +26,12 @@ class UsersController extends Controller
     {
         $session = Yii::$app->session;
         $id = $session['id'];
-        $dataProvider = new ActiveDataProvider([
-            'query' => Profile::find()->where(['user_id' => $id])
-        ]);
-        return $this->render('profile', ['dataProvider' => $dataProvider]);
+        $user = User::findOne($id);
+
+        $profileID = $session['profile_id'];
+        $profile = Profile::findOne($profileID);
+
+        return $this->render('profile', ['user' => $user, 'profile' => $profile]);
     }
 
     public function actionLogin()
@@ -58,9 +60,7 @@ class UsersController extends Controller
 
                     $userProfile = $profile->GetProfile($session['id']);
                     if(!is_null($userProfile)) {
-                        $session->set('user_name', $userProfile->name);
-                        $session->set('user_birth', $userProfile->birth_date);
-                        $session->set('user_image', $userProfile->image);
+                        $session->set('profile_id', $userProfile->id);
                         return Yii::$app->response->redirect(Url::to('../main/home'));
                     }
                     $model->addError('ERROR', "This user's profile doesn't exist.");
@@ -167,6 +167,35 @@ class UsersController extends Controller
             return Yii::$app->response->redirect(Url::to('index'));
         }
         return $this->render('forms/addUser', ['model' => $model]);
+    }
+
+    public function actionEditgeneral()
+    {
+        $this->layout = 'form';
+
+        $session = Yii::$app->session;
+        $id = $session['id'];
+        $model = User::findOne($id);
+        if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
+        return $this->render('forms/editGeneral', ['model' => $model]);
+    }
+    public function actionEditinfo()
+    {
+        $this->layout = 'form';
+
+        $session = Yii::$app->session;
+        $id = $session['profile_id'];
+        $model = Profile::findOne($id);
+        if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
+        return $this->render('forms/editInfo', ['model' => $model]);
     }
 
     public function actionDelete($id)

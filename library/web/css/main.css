@@ -200,3 +200,15 @@ a
 .resume .list-group-item:first-child, .resume .list-group-item:last-child{
     border-radius:0;
 }
+
+.edit-link {
+    text-align: right;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.img-circle {
+    width: 185px;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
