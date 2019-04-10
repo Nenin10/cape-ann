@@ -39,6 +39,15 @@ return array (
       '@yii/gii' => $vendorDir . '/yiisoft/yii2-gii/src',
     ),
   ),
+  'yiisoft/yii2-jui' =>
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '2.0.7',
+    'alias' =>
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
   'yiisoft/yii2-faker' => 
   array (
     'name' => 'yiisoft/yii2-faker',

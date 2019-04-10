@@ -1,10 +1,6 @@
 <?php
 
-namespace app\models;
-
-use Yii;
 use yii\helpers\url;
-use app\models\Profile;
 
 ?>
 <?php
