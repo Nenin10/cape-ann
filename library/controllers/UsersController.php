@@ -30,7 +30,15 @@ class UsersController extends Controller
         $profileID = $session['profile_id'];
         $profile = Profile::findOne($profileID);
 
-        return $this->render('profile', ['user' => $user, 'profile' => $profile]);
+        $authors = new ActiveDataProvider([
+            'query' => ProfileAuthor::find()->where(['profile_id' => $profileID])
+        ]);
+
+        $books = new ActiveDataProvider([
+            'query' => Profile2Book::find()->where(['profile_id' => $profileID])
+        ]);
+
+        return $this->render('profile', ['user' => $user, 'profile' => $profile, 'authors' => $authors, 'books' => $books]);
     }
 
     public function actionAdduser()
@@ -80,17 +88,37 @@ class UsersController extends Controller
         return Yii::$app->response->redirect(Url::to('../main'));
     }
 
-    public function actionUpdate($id)
+    public function actionUpdate($id,$gridid)
     {
         $this->layout = 'form';
 
-        $model = User::findOne($id);
-        if ($model -> load(Yii::$app->request->post()) && $model -> validate())
-        {
-            $model -> save();
-            return Yii::$app->response->redirect(Url::to('index'));
+        if($gridid == 1){
+            $model = User::findOne($id);
+            if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+            {
+                $model -> save();
+                return Yii::$app->response->redirect(Url::to('index'));
+            }
+            return $this->render('forms/addUser', ['model' => $model]);
         }
-        return $this->render('forms/addUser', ['model' => $model]);
+        else if($gridid == 2){
+            $model = ProfileAuthor::findOne($id);
+            if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+            {
+                $model -> save();
+                return Yii::$app->response->redirect(Url::to('profile'));
+            }
+            return $this->render('forms/favAuthor', ['model' => $model]);
+        }
+        else if($gridid == 3){
+            $model = Profile2Book::findOne($id);
+            if ($model -> load(Yii::$app->request->post()) && $model -> validate())
+            {
+                $model -> save();
+                return Yii::$app->response->redirect(Url::to('profile'));
+            }
+            return $this->render('forms/favBook', ['model' => $model]);
+        }
     }
 
     public function actionEditgeneral()
@@ -122,10 +150,54 @@ class UsersController extends Controller
         return $this->render('forms/editInfo', ['model' => $model]);
     }
 
-    public function actionDelete($id)
+    public function actionFavauthor()
     {
-        $model = User::findOne($id);
-        $model -> delete();
-        return Yii::$app->response->redirect(Url::to('index'));
+        $this->layout = 'form';
+
+        $model = new ProfileAuthor;
+        $session = Yii::$app->session;
+        $model->profile_id = $session['profile_id'];
+        if ($model -> load(Yii::$app->request->post()) && $model->validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
+        return $this->render('forms/favAuthor', ['model' => $model]);
+    }
+    public function actionFavbook()
+    {
+        $this->layout = 'form';
+
+        $model = new Profile2Book;
+        $session = Yii::$app->session;
+        $model->profile_id = $session['profile_id'];
+        if ($model -> load(Yii::$app->request->post()) && $model->validate())
+        {
+            $model -> save();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
+        return $this->render('forms/favBook', ['model' => $model]);
+    }
+
+    public function actionDelete($id,$gridid)
+    {
+        if($gridid == 1)
+        {
+            $model = User::findOne($id);
+            $model -> delete();
+            return Yii::$app->response->redirect(Url::to('index'));
+        }
+        else if($gridid == 2)
+        {
+            $model = ProfileAuthor::findOne($id);
+            $model -> delete();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
+        else if($gridid == 3)
+        {
+            $model = Profile2Book::findOne($id);
+            $model -> delete();
+            return Yii::$app->response->redirect(Url::to('profile'));
+        }
     }
 }

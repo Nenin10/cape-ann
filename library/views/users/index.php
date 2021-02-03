@@ -51,7 +51,6 @@ if(!isset($session['user_id']))
             'columns' => [
                 'rank',
                 'username',
-                'password',
                 'email',
                 [
                     'class' => 'yii\grid\ActionColumn',
@@ -70,11 +69,11 @@ if(!isset($session['user_id']))
                     'urlCreator' => function ($action, $model, $key, $index) {
                         if($action === 'update')
                         {
-                            return  Url::to('update?id=' .$key);
+                            return  Url::to('update?id=' .$key. '&gridid=1');
                         }
                         else if($action === 'delete')
                         {
-                            return  Url::to('delete?id=' .$key);
+                            return  Url::to('delete?id=' .$key. '&gridid=1');
                         }
                     }
                 ],
