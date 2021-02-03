@@ -23,8 +23,8 @@ namespace app\models;
                 <a href="javascript:void(0)" class="btn btn-default btn-lg btn-block" id="main"> Sign-In </a> <br>
             </div>
             <div class="btn-group-sm hidden" id="mini-fab">
-                <a href="users/login" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-user"></span> Login </a> <br>
-                <a href="users/register" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Register</a>
+                <a href="main/login" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-user"></span> Login </a> <br>
+                <a href="main/register" class="btn btn-primary btn-lg btn-block"><span class="glyphicon glyphicon-pencil"></span> Register</a>
             </div>
         </div>
         <div class="col-md-5 col-sm-4 col-xs-3"></div>

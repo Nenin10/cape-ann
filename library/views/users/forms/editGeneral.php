@@ -1,7 +1,5 @@
 <?php
 
-namespace app\models;
-
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
@@ -14,7 +12,7 @@ use yii\bootstrap\ActiveForm;
             <div id="login-column" class="col-md-6">
                 <div id="login-box" class="col-md-12">
                     <form id="login-form" class="form" method="post">
-                        <h3 class="text-center text-dark">Book</h3>
+                        <h3 class="text-center text-dark">Login Info</h3>
                         <div class="form-group">
                             <?php
                             $form = ActiveForm::begin([
@@ -23,16 +21,11 @@ use yii\bootstrap\ActiveForm;
                             ])
                             ?>
 
-                            <?= $form->field($model, 'title') ?>
-                            <?= $form->field($model, 'author') ?>
-                            <?= $form->field($model, 'year') ?>
-                            <?= $form->field($model, 'description')->textarea() ?>
-                            <?= $form->field($model, 'cover')->fileInput([
-                                    'class' => 'btn btn-secondary',
-                                    'style' => 'width: 100%',
-                                ]) ?>
+                            <?= $form->field($model, 'email') ?>
+                            <?= $form->field($model, 'username') ?>
+                            <?= $form->field($model, 'password')->passwordInput() ?>
 
-                            <?= Html::submitButton('Submit', ['class' => 'btn btn-default btn-md', 'target' => '_blank']) ?>
+                            <?= Html::submitButton('Submit', ['class' => 'btn btn-default btn-md']) ?>
 
                             <?php ActiveForm::end() ?>
                         </div>
